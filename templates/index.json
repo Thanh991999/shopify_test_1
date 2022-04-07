@@ -109,20 +109,20 @@
         "collection-0": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "bộ-sưu-tập-mua-he"
           }
         },
         "product": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "bitis-hunter-collection",
             "second_image": false
           }
         },
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "frontpage"
           }
         }
       },
