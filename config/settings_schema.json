@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Thanh1234511111",
+    "theme_name": "Whoami",
     "theme_version": "4.0.0",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
@@ -12,7 +12,7 @@
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.colors.settings.header__1.content"
+        "content": "Dat dz"
       },
       {
         "type": "color",
@@ -23,7 +23,7 @@
       },
       {
         "type": "color",
-        "id": "colors_accent_1",
+        "id": "colors_primary",
         "default": "#121212",
         "label": "t:settings_schema.colors.settings.colors_accent_1.label",
         "info": "t:settings_schema.colors.settings.colors_accent_1.info"
