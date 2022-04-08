@@ -1,0 +1,21 @@
+<h1>{{ section.setting.heading }}</h1>
+<p>{{ section.setting.description }}</p>
+
+
+{% schema %}
+{
+  "name": "Thêm heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Nhập để thêm heading"
+    },
+    {
+        "type": "richtext",
+        "id": "description",
+        "label": "Nhập nội dung chi tiết"
+      }
+  ]
+}
+{% endschema %}
