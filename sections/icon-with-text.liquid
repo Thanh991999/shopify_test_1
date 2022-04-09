@@ -1,0 +1,52 @@
+
+
+
+<h1>{{ section.settings.heading-test }}</h1>
+<p>{{ section.settings.description-test }}</p>
+
+{% for block in section.blocks %}
+  <img src= "{{block.settings.image123 | image_url: width: 500, height: 500 }}"/>
+  
+
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Chỉnh sửa",
+  "class": "hello",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading-test",
+      "label": "Nhập để thêm heading"
+    },
+    {
+        "type": "richtext",
+        "id": "description-test",
+        "label": "Nhập nội dung chi tiết"
+
+      }
+  ],
+  "blocks": [
+     {
+       "name": "Thêm hình ảnh",
+       "type": "image",
+  
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "image123",
+           "label": "Image"
+         }
+       ]
+     }
+  ],
+  "presets": [
+     {
+       "category": "image",
+       "name": "icon with text"
+     }
+   ]
+  
+}
+{% endschema %}
