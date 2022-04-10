@@ -5,8 +5,8 @@
 {{ 'spf-responsive.css' | asset_url | stylesheet_tag }}
 
 
-<div class="header-wraper">
-    <div class="section header">
+<div class="header-wraper" style="background-image:url('{{ section.settings.spfimage.src | img_url: 'large' }}')"​​​​​​ >
+    <div class="section spf-header">
         <div class="container">
             <div class="header-nav dfs">
                 <i class="bi bi-list menu-tab-mb hidden-pc"></i>
@@ -248,25 +248,17 @@
 {% for block in section.blocks %}
   <img src= "{{block.settings.image123 | image_url: width: 500, height: 500 }}"/>
   
-
 {% endfor %}
 
 {% schema %}
 {
-  "name": "Chỉnh sửa",
-  "class": "hello",
+  "name": "Image banner",
   "settings": [
     {
-      "type": "text",
-      "id": "heading-test",
-      "label": "Nhập để thêm heading"
-    },
-    {
-        "type": "richtext",
-        "id": "description-test",
-        "label": "Nhập nội dung chi tiết"
-
-      }
+      "type": "image_picker",
+      "id": "spfimage",
+      "label": "Upload your image"
+    }
   ],
   "blocks": [
      {

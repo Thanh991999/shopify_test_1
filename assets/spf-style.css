@@ -1,6 +1,6 @@
 
 
-.header {
+.spf-header {
     padding-left: 80px;
     padding-right: 80px;
 }
@@ -123,7 +123,8 @@
 .header-wraper {
     position: relative;
     height: 75.27vw;
-    background: url(../img/hero-bg.jpg) no-repeat center/ cover;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .section.hero {
