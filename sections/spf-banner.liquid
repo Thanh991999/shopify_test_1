@@ -8,18 +8,30 @@
 <div class="header-wraper" style="background-image:url('{{ section.settings.spfimage.src | img_url: 'large' }}')"​​​​​​ >
     
     <div class="section hero">
-        <!-- <h1 class="hero-heading text">
-            Make your interior more minimalistic &amp; modern
-        </h1> -->
+       
 
-        <h1 class="hero-heading text">
+        <!-- <h1 class="hero-heading text">
             {{ section.settings.heading }}
         </h1>
 
-        <!-- <h2 class="sub-hero-heading text">Turn your room with panto into a lot more minimalist and modern with ease and speed</h2> -->
-            <h2 class="sub-hero-heading text">
-                {{ section.settings.subheading }}
-            </h2>
+        
+        <h2 class="sub-hero-heading text">
+            {{ section.settings.subheading }}
+        </h2> -->
+        {%- for block in section.blocks -%}
+            {%- case block.type -%}
+                {%- when 'heading' -%}
+                    <h1 class="hero-heading text ">
+                        {{ block.settings.heading }}
+                    </h1>
+                    
+                {%- when 'text' -%}
+                    <h2 class="sub-hero-heading text">
+                        {{ block.settings.subheading }}
+                    </h2>
+                    
+            {%- endcase -%}
+      {%- endfor -%}
 
         <form>
             <div class="form-search dfs">
@@ -127,49 +139,52 @@
 
 {% schema %}
 {
-  "name": "Thanh Image banner",
+  "name": "Image banner",
   "settings": [
     {
       "type": "image_picker",
       "id": "spfimage",
       "label": "Upload your image"
-    },
-    {
-        "type": "text",
-        "id": "heading",
-        "default": "Make your interior more minimalistic & modern",
-        "label": "Heading"
-    },
-    {
-        "type": "text",
-        "id": "subheading",
-        "default": "Turn your room with panto into a lot more minimalist and modern with ease and speed",
-        "label": "paragrap"
     }
   ],
   "blocks": [
         {
-        "name": "heading",
-        "type": "text",
-        "settings": [
+            "name": "heading",
+            "type": "heading",
+            "settings": [
                 {
                     "type": "text",
                     "id": "heading",
                     "default": "Make your interior more minimalistic & modern",
                     "label": "Heading"
-                },
+                }
+            ]
+        },
+        {
+            "name": "subheading",
+            "type": "text",
+            "settings": [
                 {
                     "type": "text",
                     "id": "subheading",
                     "default": "Turn your room with panto into a lot more minimalist and modern with ease and speed",
                     "label": "paragrap"
                 }
-        ]
+            ]
         }
     ],
     "presets": [
         {
-            "name": "spf-banner"
+            "name": "spf-banner",
+            "blocks": [
+
+                {
+                    "type": "text"
+                },
+                {
+                    "type": "heading"
+                }
+            ]
         }
     ]
 }

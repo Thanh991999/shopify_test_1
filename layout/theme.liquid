@@ -235,7 +235,6 @@
 
 
     {% section 'announcement-bar' %}
-    <!-- <div class="spf-main"> -->
       {% section 'spf-header' %}
 
       <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
@@ -244,7 +243,6 @@
   
       {% section 'footer' %}
 
-    <!-- </div> -->
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -277,6 +275,27 @@
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
     </script>
+
+     <!-- script -->
+     <script
+     type="text/javascript"
+     src="https://code.jquery.com/jquery-1.11.0.min.js"
+   ></script>
+
+   <script
+     type="text/javascript"
+     src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+ ></script>
+
+ <script
+   type="text/javascript"
+   src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+ ></script>
+
+ <script src="{{ 'spf-slick.js' | asset_url }}" defer="defer"></script>
+ <script src="{{ 'spf-main.js' | asset_url }}" defer="defer"></script>
+   <!-- end script -->
+
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>

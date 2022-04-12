@@ -1,9 +1,16 @@
 {
   "sections": {
     "banner_image": {
+<<<<<<< HEAD
       "type": "banner-image"
     },
 
+=======
+      "type": "banner-image",
+      "settings": {
+      }
+    },
+>>>>>>> 31e8b1bd7ba1d3b23bdf88d36aba90c4348c3e6d
     "image_banner": {
       "type": "image-banner",
       "blocks": {

@@ -5,7 +5,6 @@
 {{ 'spf-responsive.css' | asset_url | stylesheet_tag }}
 
 
-
 <div class="
 
     {%if request.page_type == 'index' %} spf-header--modify {% endif %}  
@@ -17,8 +16,14 @@
     <div class="container">
         <div class="header-nav dfs {%unless request.page_type == 'index' %} header-nav--mdf {% endunless %}">
             <i class="bi bi-list menu-tab-mb hidden-pc"></i>
-            <a href="#" class="nav-logo text">Panto</a>
-            <ul class="nav-list df">
+
+            <a href="#" class="nav-logo text">
+                {{ section.settings.spf-logo }}
+            </a>
+
+
+
+            <!-- <ul class="nav-list df">
                 <li class="nav-item df">
                     <div class="nav-item__wrap">
                         <a href="#" class="nav-link text">Furniture</a>
@@ -60,7 +65,47 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link text">Contact</a>
                 </li>
-            </ul>
+            </ul> -->
+
+            <ul class="nav-list df">
+                {% for link in section.settings.menu.links %}
+                  <li class="nav-item 
+                  {% if link.links.size > 0 %}
+                    spf-hidden
+                  {% endif %}
+                    ">
+
+                    <div class="nav-item__wrap">
+                        <a class="nav-link text" href="{{ link.url }}">{{ link.title }}</a>
+                        
+                        {% if link.links.size > 0 %}
+                            <i class="nav-item__icon bi bi-chevron-down"></i>
+                        {% endif %}
+                    </div>
+
+                    {% if link.links.size > 0 %}
+                      <ul class="nav-item__funiture-list">
+                        {% for child_link in link.links %}
+                          <li class="nav-item__funiture-items">
+                            <a class="nav-item__funiture-link" href="{{ child_link.url }}">{{ child_link.title }}</a>
+              
+                            <!-- {% if child_link.links.size > 0 %}
+                              <ul class="menu dropdown-grandchild">
+                                {% for grandchild_link in child_link.links %}
+                                  <li class="menu-link">
+                                    <a href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            {% endif %} -->
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+              
 
             <div class="overlay-menu"></div>
 
@@ -145,48 +190,25 @@
     </div>
 </div>
 
+
+
 {% schema %}
 {
-  "name": "Thanh Image banner",
+  "name": "Header",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "spfimage",
-      "label": "Upload your image"
+      "type": "text",
+      "id": "spf-logo",
+      "label": "Upload your logo",
+      "default": "Panto"
     },
     {
-        "type": "text",
-        "id": "heading",
-        "default": "Make your interior more minimalistic & modern",
-        "label": "Heading"
-    },
-    {
-        "type": "text",
-        "id": "subheading",
-        "default": "Turn your room with panto into a lot more minimalist and modern with ease and speed",
-        "label": "paragrap"
+        "type": "link_list",
+        "id": "menu",
+        "default": "main-menu",
+        "label": "t:sections.header.settings.menu.label"
     }
   ],
-  "blocks": [
-        {
-        "name": "heading",
-        "type": "text",
-        "settings": [
-                {
-                    "type": "text",
-                    "id": "heading",
-                    "default": "Make your interior more minimalistic & modern",
-                    "label": "Heading"
-                },
-                {
-                    "type": "text",
-                    "id": "subheading",
-                    "default": "Turn your room with panto into a lot more minimalist and modern with ease and speed",
-                    "label": "paragrap"
-                }
-        ]
-        }
-    ],
     "presets": [
         {
             "name": "spf-header"
