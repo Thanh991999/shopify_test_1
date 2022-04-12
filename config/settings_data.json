@@ -183,6 +183,12 @@
         "settings": {
           "color_scheme": "background-1"
         }
+      },
+      "spf-banner": {
+        "type": "spf-banner",
+        "settings": {
+          "spfimage": "shopify:\/\/shop_images\/hero-bg.jpg"
+        }
       }
     },
     "content_for_index": [

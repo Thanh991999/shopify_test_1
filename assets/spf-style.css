@@ -1,12 +1,27 @@
+.spf-header--modify {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+}
 
+.spf-header--color {
+    background-color: #af8888;
+}
 
-.header {
+.spf-header {
+    
     padding-left: 80px;
     padding-right: 80px;
 }
 
 .header-nav {
     padding-top: 40px;
+}
+
+.header-nav--mdf {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .nav-logo {
@@ -113,7 +128,7 @@
 .nav-cart__amount-product {
     position: absolute;
     top: 0;
-    right: -4px;
+    right: -10px;
     background-color: rgba(229, 132, 17, 1);
     width: 20px;
     height: 25px;
@@ -123,11 +138,12 @@
 .header-wraper {
     position: relative;
     height: 75.27vw;
-    background: url(../img/hero-bg.jpg) no-repeat center/ cover;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .section.hero {
-    padding-top: 86px;
+    padding-top: 166px;
 }
 
 .hero-heading {

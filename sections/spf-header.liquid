@@ -1,0 +1,196 @@
+
+{{ 'spf-base.css' | asset_url | stylesheet_tag }}
+{{ 'spf-grid.css' | asset_url | stylesheet_tag }}
+{{ 'spf-style.css' | asset_url | stylesheet_tag }}
+{{ 'spf-responsive.css' | asset_url | stylesheet_tag }}
+
+
+
+<div class="
+
+    {%if request.page_type == 'index' %} spf-header--modify {% endif %}  
+    {%unless request.page_type == 'index' %} spf-header--color {% endunless %}  
+
+    
+    section spf-header">
+
+    <div class="container">
+        <div class="header-nav dfs {%unless request.page_type == 'index' %} header-nav--mdf {% endunless %}">
+            <i class="bi bi-list menu-tab-mb hidden-pc"></i>
+            <a href="#" class="nav-logo text">Panto</a>
+            <ul class="nav-list df">
+                <li class="nav-item df">
+                    <div class="nav-item__wrap">
+                        <a href="#" class="nav-link text">Furniture</a>
+                        <i class="nav-item__icon bi bi-chevron-down"></i>
+
+                    </div>
+
+                    <ul class="nav-item__funiture-list">
+                        <li class="nav-item__funiture-items">
+                            <a href="#" class="nav-item__funiture-link">
+                                Chair
+                            </a>
+                            
+                        </li>
+                        <li class="nav-item__funiture-items">
+                            <a href="#" class="nav-item__funiture-link">
+                                Beds
+                            </a>
+                        </li>
+                        <li class="nav-item__funiture-items">
+                            <a href="#" class="nav-item__funiture-link">
+                                Chair
+                            </a>
+                        </li>
+                        <li class="nav-item__funiture-items">
+                            <a href="#" class="nav-item__funiture-link">
+                                Lamp
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link text">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text">Contact</a>
+                </li>
+            </ul>
+
+            <div class="overlay-menu"></div>
+
+            <div class="nav-cart">
+                <i class="bi bi-handbag-fill" style="font-size: 2.2rem;color: #fff;"></i>
+                <div class="nav-cart__amount-product text df">
+                    4
+                </div>
+
+                <div class="header__cart-list">
+                            
+                    <h4 class="header__cart-heading">Product Has Been Added</h4>
+                    <div class="header__cart-body">
+                        <ul class="header__cart-list-items">
+                            <li class="header__cart-items">
+                                <img src="./assets/img/cart/img1.jpg" alt="F10 Plus Xanh" class="header__cart-items-img">
+                                <div class="header__cart-items-head">
+                                    <div class="header__cart-items-description">
+                                        Office chair
+                                    </div>
+                                    <span class="header__cart-items-cost">
+                                        <span class="header__cart-items-units">$</span>
+                                        199
+                                    </span>
+                                </div>
+                                
+                            </li>
+                            <li class="header__cart-items">
+                                <img src="./assets/img/cart/img2.jpg" alt="Bàn phím cơ Keychron K2" class="header__cart-items-img">
+    
+                                <div class="header__cart-items-head">
+                                    <div class="header__cart-items-description">
+                                        Nyantuy Chair
+                                        
+                                    </div>
+                                    <span class="header__cart-items-cost">
+                                        <span class="header__cart-items-units">$</span>
+                                        299
+                                    </span>
+                                </div>
+                                
+                            </li>
+                            <li class="header__cart-items">
+                                <img src="./assets/img/cart/img3.jpg" alt="F10 Plus Xanh" class="header__cart-items-img">
+                                
+                                <div class="header__cart-items-head">
+                                    <div class="header__cart-items-description">
+                                        <button class="header__cart-items-sale">Sale Up To 20%</button>
+                                        Sakarias Armchair
+                                        
+                                    </div>
+                                    <span class="header__cart-items-cost">
+                                        <span class="header__cart-items-units">$</span>
+                                        150
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="header__cart-items">
+                                <img src="./assets/img/cart/img4.jpg" alt="" class="header__cart-items-img">
+                                <div class="header__cart-items-head">
+                                    <div class="header__cart-items-description">Ipsum Chair
+                                    </div>
+                                    <span class="header__cart-items-cost">
+                                        <span class="header__cart-items-units">$</span>
+                                        349
+                                    </span>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="header__cart-footer">
+                        <a href="#" class="btn-cart btn--primary">
+                            See Cart
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Thanh Image banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "spfimage",
+      "label": "Upload your image"
+    },
+    {
+        "type": "text",
+        "id": "heading",
+        "default": "Make your interior more minimalistic & modern",
+        "label": "Heading"
+    },
+    {
+        "type": "text",
+        "id": "subheading",
+        "default": "Turn your room with panto into a lot more minimalist and modern with ease and speed",
+        "label": "paragrap"
+    }
+  ],
+  "blocks": [
+        {
+        "name": "heading",
+        "type": "text",
+        "settings": [
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "default": "Make your interior more minimalistic & modern",
+                    "label": "Heading"
+                },
+                {
+                    "type": "text",
+                    "id": "subheading",
+                    "default": "Turn your room with panto into a lot more minimalist and modern with ease and speed",
+                    "label": "paragrap"
+                }
+        ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "spf-header"
+        }
+    ]
+}
+{% endschema %}
