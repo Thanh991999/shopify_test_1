@@ -3,46 +3,33 @@
     <div class="container">
         <div class="row">
             <div class="col l-2-7 m-12 c-12">
-                <h2 class="heading reason-heading">
-                    Why Choosing Us
+                <h2 class="heading reason-heading 
+                  {{ section.settings.select-size-text}}
+                ">
+                    {{ section.settings.multilcolumn-heading }}
                 </h2>
             </div>
             <div class="col l-7-3 m-12 c-12">
                 <div class="row gutter-small">
+                  {% for block in section.blocks %}
+
                     <div class="l-4 col m-12 c-12 mb-35">
                         <h3 class="reason-title">
-                            Luxury facilities
+                            <!-- Luxury facilities -->
+                          {{ block.settings.title }}
+
                         </h3>
                         <p class="reason-text">
-                            The advantage of hiring a workspace with us is that givees you comfortable service and all-around facilities.
+                            <!-- The advantage of hiring a workspace with us is that givees you comfortable service and all-around facilities. -->
+                          {{ block.settings.descript }}
                         </p>
-                        <a href="#" class="reason-more">More Info
-                            <img src="./assets/icon/Arrow-long-left.svg" alt="">
+                        <a href="{{ block.settings.link }}" class="reason-more">
+                          <!-- More Info -->
+                          {{ block.settings.link_lable }}
+                            <img src= "https://thanh991999.github.io/Panto_Funiture/assets/icon/Arrow-long-left.svg" alt></img>
                         </a>
                     </div>
-                    <div class="l-4 col m-12 c-12 mb-35">
-                        <h3 class="reason-title">
-                            Affordable Price
-                        </h3>
-                        <p class="reason-text">
-                            You can get a workspace of the highst quality at an affordable price and still enjoy the facilities that are oly here.
-                        </p>
-                        <a href="#" class="reason-more">More Info
-                            <img src="./assets/icon/Arrow-long-left.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="l-4 col m-12 c-12 mb-35">
-                        <h3 class="reason-title">
-                            Many Choices
-                        </h3>
-                        <p class="reason-text">
-                            We provide many unique work space choices so that you can choose the workspace to your liking.
-                        </p>
-                        <a href="#" class="reason-more">
-                            More Info
-                            <img src="./assets/icon/Arrow-long-left.svg" alt="">
-                        </a>
-                    </div>
+                  {%- endfor -%}
                     
                 </div>
             </div>
@@ -50,158 +37,83 @@
     </div>
 </div>
 
-<!-- {% schema %}
-{
-  "name": "t:sections.rich-text.name",
-  "tag": "section",
-  "class": "section",
+{% schema %}
+{   
+  "name": "Multicolumn",
+  "tag": "div",
+  "class": "multicolumn",
   "settings": [
     {
+      "type": "text",
+      "label": "Heading",
+      "id": "multilcolumn-heading",
+      "default": "Why Choosing Us"
+
+    },
+    {
       "type": "select",
-      "id": "color_scheme",
+      "label": "Heading size",
+      "id": "select-size-text",
       "options": [
         {
-          "value": "accent-1",
-          "label": "t:sections.all.colors.accent_1.label"
+          "value": "large",
+          "label": "Large"
         },
         {
-          "value": "accent-2",
-          "label": "t:sections.all.colors.accent_2.label"
+          "value": "medium",
+          "label": "Medium"
         },
         {
-          "value": "background-1",
-          "label": "t:sections.all.colors.background_1.label"
-        },
-        {
-          "value": "background-2",
-          "label": "t:sections.all.colors.background_2.label"
-        },
-        {
-          "value": "inverse",
-          "label": "t:sections.all.colors.inverse.label"
+          "value": "small",
+          "label": "Small"
         }
-      ],
-      "default": "background-1",
-      "label": "t:sections.all.colors.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "default": true,
-      "label": "t:sections.rich-text.settings.full_width.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 52
+      ]
+
     }
   ],
   "blocks": [
     {
-      "type": "heading",
-      "name": "t:sections.rich-text.blocks.heading.name",
-      "limit": 1,
+      "name" : "column",
+      "type" : "column",
       "settings": [
         {
+          "label": "Heading",
           "type": "text",
-          "id": "heading",
-          "default": "Talk about your brand",
-          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+          "id": "title"
         },
         {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            {
-              "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
-            },
-            {
-              "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
-            },
-            {
-              "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
-            }
-          ],
-          "default": "h1",
-          "label": "t:sections.all.heading_size.label"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "name": "t:sections.rich-text.blocks.text.name",
-      "limit": 1,
-      "settings": [
-        {
+          "label": "Description",
           "type": "richtext",
-          "id": "text",
-          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-          "label": "t:sections.rich-text.blocks.text.settings.text.label"
-        }
-      ]
-    },
-    {
-      "type": "button",
-      "name": "t:sections.rich-text.blocks.button.name",
-      "limit": 1,
-      "settings": [
+          "id": "descript"
+        },
         {
+          "label": "Link label",
           "type": "text",
-          "id": "button_label",
-          "default": "Button label",
-          "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+          "id": "link_lable"
         },
         {
+          "label": "Link",
           "type": "url",
-          "id": "button_link",
-          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary",
-          "default": false,
-          "label": "t:sections.rich-text.blocks.button.settings.button_style_secondary.label"
+          "id": "link"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.rich-text.presets.name",
+      "name": "spf-multicolumn",
       "blocks": [
         {
-          "type": "heading"
+          "type": "column"
         },
         {
-          "type": "text"
+          "type": "column"
         },
         {
-          "type": "button"
+          "type": "column"
         }
       ]
     }
   ]
 }
-{% endschema %} -->
+{% endschema %}

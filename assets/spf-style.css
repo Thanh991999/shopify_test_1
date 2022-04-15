@@ -11,18 +11,34 @@
     right: 0;
 }
 
+.form-label {
+    cursor: pointer;
+}
+
 .spf-header--color {
     background-color: #af8888;
 }
 
-.spf-header {
+/* .spf-header {
     
     padding-left: 80px;
     padding-right: 80px;
-}
+} */
 
 .header-nav {
     padding-top: 40px;
+}
+
+.reason-heading.large {
+    font-size: 5rem;
+}
+
+.reason-heading.small {
+    font-size: 3rem;
+}
+
+.reason-heading.medium {
+    font-size: 4.2rem;
 }
 
 .header-nav--mdf {
@@ -366,6 +382,7 @@
     font-size: 2.1rem;
     line-height: 1.19em;
     margin-bottom: 6px;
+    color: #000000;
 }
 
 .product-stars {
@@ -379,6 +396,7 @@
     font-size: 2.1rem;
     line-height: 1.19em;
     margin-bottom: 6px;
+    color: #000;
 }
 
 .product-info .product-plus {

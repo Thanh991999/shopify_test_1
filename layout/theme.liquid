@@ -14,11 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-    />
+    
+    
       <style>
           @import url('https://fonts.cdnfonts.com/css/gilroy-bold');
       </style>
@@ -210,6 +207,13 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
+    {{ 'slick.css' | asset_url | stylesheet_tag }}
+
+    {{ 'spf-base.css' | asset_url | stylesheet_tag }}
+    {{ 'spf-grid.css' | asset_url | stylesheet_tag }}
+    {{ 'spf-style.css' | asset_url | stylesheet_tag }}
+    {{ 'spf-responsive.css' | asset_url | stylesheet_tag }}
+
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -276,29 +280,27 @@
       }
     </script>
 
-     <!-- script -->
-     <script
-     type="text/javascript"
-     src="https://code.jquery.com/jquery-1.11.0.min.js"
-   ></script>
-
-   <script
-     type="text/javascript"
-     src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
- ></script>
-
- <script
-   type="text/javascript"
-   src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
- ></script>
-
- <script src="{{ 'spf-slick.js' | asset_url }}" defer="defer"></script>
- <script src="{{ 'spf-main.js' | asset_url }}" defer="defer"></script>
-   <!-- end script -->
+     
 
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <!-- script -->
+    <script
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-1.11.0.min.js"
+  ></script>
+<script
+  type="text/javascript"
+  src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+></script>
+
+<script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+
+<script src="{{ 'spf-slick.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'spf-main.js' | asset_url }}" defer="defer"></script>
+<!-- end script -->
   </body>
 </html>

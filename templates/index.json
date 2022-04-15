@@ -1,16 +1,119 @@
 {
   "sections": {
-    "banner_image": {
-<<<<<<< HEAD
-      "type": "banner-image"
-    },
-
-=======
-      "type": "banner-image",
+    "16497578047583b264": {
+      "type": "spf-banner",
+      "blocks": {
+        "16497578043667a9f9-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Make your interior more minimalistic & modern"
+          }
+        },
+        "16497578043667a9f9-0": {
+          "type": "text",
+          "settings": {
+            "subheading": "Turn your room with panto into a lot more minimalist and modern with ease and speed"
+          }
+        },
+        "a54061dc-8211-4cfa-bc3d-4411149956ca": {
+          "type": "input",
+          "settings": {
+            "input": "Search furniture"
+          }
+        }
+      },
+      "block_order": [
+        "16497578043667a9f9-1",
+        "16497578043667a9f9-0",
+        "a54061dc-8211-4cfa-bc3d-4411149956ca"
+      ],
       "settings": {
+        "spfimage": "shopify:\/\/shop_images\/hero-bg.jpg"
       }
     },
->>>>>>> 31e8b1bd7ba1d3b23bdf88d36aba90c4348c3e6d
+    "1649815867ba9bcfcb": {
+      "type": "spf-rich-text",
+      "blocks": {
+        "5f3d776d-9f20-4b20-87c5-2bae92363c41": {
+          "type": "column",
+          "settings": {
+            "title": "Luxury facilities",
+            "descript": "<p>The advantage of hiring a workspace with us is that givees you comfortable service and all-around facilities.<\/p>",
+            "link_lable": "More Info",
+            "link": "shopify:\/\/pages\/contact"
+          }
+        },
+        "340e1e0c-15b1-4bf2-a61a-79f0c4a3d70a": {
+          "type": "column",
+          "settings": {
+            "title": "Affordable Price",
+            "descript": "<p>You can get a workspace of the highst quality at an affordable price and still enjoy the facilities that are oly here.<\/p>",
+            "link_lable": "More Info",
+            "link": "shopify:\/\/pages\/contact"
+          }
+        },
+        "439dc6b9-3afa-4cc2-a0b6-af94864f0161": {
+          "type": "column",
+          "settings": {
+            "title": "Many Choices",
+            "descript": "<p>We provide many unique work space choices so that you can choose the workspace to your liking.<\/p>",
+            "link_lable": "More Info",
+            "link": "shopify:\/\/pages\/contact"
+          }
+        }
+      },
+      "block_order": [
+        "5f3d776d-9f20-4b20-87c5-2bae92363c41",
+        "340e1e0c-15b1-4bf2-a61a-79f0c4a3d70a",
+        "439dc6b9-3afa-4cc2-a0b6-af94864f0161"
+      ],
+      "settings": {
+        "multilcolumn-heading": "Why Choosing Us",
+        "select-size-text": "large"
+      }
+    },
+    "16498341215333ab38": {
+      "type": "spf-slider-product",
+      "blocks": {
+        "7a49177f-ec69-4f9e-a506-a7c8561e9160": {
+          "type": "text",
+          "settings": {
+            "title": "Chair",
+            "collection": "chair-collection"
+          }
+        },
+        "f46c339a-986a-46db-adae-bc97eefbacfb": {
+          "type": "text",
+          "settings": {
+            "title": "Beds",
+            "collection": "chair-collection"
+          }
+        },
+        "30911ff1-22c2-408e-8873-f938b619c05b": {
+          "type": "text",
+          "settings": {
+            "title": "Sofa",
+            "collection": "chair-collection"
+          }
+        },
+        "74c5ad1d-6d7c-4c81-b9a3-ebf459194a0d": {
+          "type": "text",
+          "settings": {
+            "title": "Lamp",
+            "collection": "chair-collection"
+          }
+        }
+      },
+      "block_order": [
+        "7a49177f-ec69-4f9e-a506-a7c8561e9160",
+        "f46c339a-986a-46db-adae-bc97eefbacfb",
+        "30911ff1-22c2-408e-8873-f938b619c05b",
+        "74c5ad1d-6d7c-4c81-b9a3-ebf459194a0d"
+      ],
+      "settings": {
+        "heading": "Best Selling Product"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -221,7 +324,9 @@
     }
   },
   "order": [
-    "banner_image",
+    "16497578047583b264",
+    "1649815867ba9bcfcb",
+    "16498341215333ab38",
     "image_banner",
     "rich_text",
     "featured_collection",

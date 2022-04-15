@@ -1,9 +1,6 @@
 
 
-{{ 'spf-base.css' | asset_url | stylesheet_tag }}
-{{ 'spf-grid.css' | asset_url | stylesheet_tag }}
-{{ 'spf-style.css' | asset_url | stylesheet_tag }}
-{{ 'spf-responsive.css' | asset_url | stylesheet_tag }}
+
 
 <div class="header-wraper" style="background-image:url('{{ section.settings.spfimage.src | img_url: 'large' }}')"​​​​​​ >
     
@@ -29,20 +26,26 @@
                     <h2 class="sub-hero-heading text">
                         {{ block.settings.subheading }}
                     </h2>
+
+                {%- when 'input' -%}
+                    <form action="{{ routes.search_url }}">
+                        <div class="form-search dfs">
+                            <div class="text hero-search">
+                                <input type="text" placeholder="{{ block.settings.input }}"
+                                name="q"
+                                value="{{ search.terms | escape }}"
+                                > 
+                            </div>
+                            <button class="hero-search__icon df" type="submit" >
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
                     
             {%- endcase -%}
       {%- endfor -%}
 
-        <form>
-            <div class="form-search dfs">
-                <div class="text hero-search">
-                    <input type="text" name="" id="" placeholder="Search furniture"> 
-                </div>
-                <button class="hero-search__icon df">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
-        </form>
+        
 
        
     </div>
@@ -57,7 +60,7 @@
         <div class="header-wraper__dot-options df">
             <div class="dot-options__color dfs">
                 <div class="dot-options__items dot-options__items--orange df">
-                    <img src="./assets/icon/vectorV.svg" alt="">
+                    <img src="https://thanh991999.github.io/Panto_Funiture/assets/icon/vectorV.svg" alt="">
                 </div>
                 <div class="dot-options__items dot-options__items--blue">
                     
@@ -126,7 +129,7 @@
                     
                 </div>
                 <div class="dot-options__items dot-options__items--dark df">
-                    <img src="./assets/icon/vectorV.svg" alt="">
+                    <img src="https://thanh991999.github.io/Panto_Funiture/assets/icon/vectorV.svg" alt="">
                 </div>
             </div>
         </div>
@@ -171,18 +174,29 @@
                     "label": "paragrap"
                 }
             ]
+        },
+        {
+            "name": "Input",
+            "type": "input",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "input",
+                    "default": "Search furniture",
+                    "label": "paragrap"
+                }
+            ]
         }
     ],
     "presets": [
         {
             "name": "spf-banner",
             "blocks": [
-
-                {
-                    "type": "text"
-                },
                 {
                     "type": "heading"
+                },
+                {
+                    "type": "text"
                 }
             ]
         }

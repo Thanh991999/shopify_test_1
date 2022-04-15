@@ -1,6 +1,6 @@
 $(document).ready(function(){
   
-    $('.slider-wrap').slick({
+    $('.slider-wrap').not('.slick-initialized').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
         speed: 1000,
@@ -38,7 +38,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $('.slider-review__wrap').slick({
+    $('.slider-review__wrap').not('.slick-initialized').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         speed: 1000,

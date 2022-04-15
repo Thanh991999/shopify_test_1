@@ -1,8 +1,5 @@
 
-{{ 'spf-base.css' | asset_url | stylesheet_tag }}
-{{ 'spf-grid.css' | asset_url | stylesheet_tag }}
-{{ 'spf-style.css' | asset_url | stylesheet_tag }}
-{{ 'spf-responsive.css' | asset_url | stylesheet_tag }}
+
 
 
 <div class="
@@ -109,13 +106,12 @@
 
             <div class="overlay-menu"></div>
 
-            <div class="nav-cart">
-                <i class="bi bi-handbag-fill" style="font-size: 2.2rem;color: #fff;"></i>
+            <a href="{{ routes.cart_url }}" class="nav-cart">
+                    <i class="bi bi-handbag-fill" style="font-size: 2.2rem;color: #fff;"></i>
                 <div class="nav-cart__amount-product text df">
-                    4
+                    {{cart.item_count}}
                 </div>
-
-                <div class="header__cart-list">
+                <!-- <div class="header__cart-list">
                             
                     <h4 class="header__cart-heading">Product Has Been Added</h4>
                     <div class="header__cart-body">
@@ -184,8 +180,9 @@
                         </a>
                     </div>
 
-                </div>
-            </div>
+                </div> -->
+            </a>
+            
         </div>
     </div>
 </div>

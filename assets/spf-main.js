@@ -5,6 +5,8 @@ const $$1 = document.querySelectorAll.bind(document);
 function click_on_category_appear_product() {
     let sliderLists = document.querySelectorAll('.slider.best-selling');
     let categoryItems = document.querySelectorAll('.category-items');
+    categoryItems[0].classList.add('active');
+    sliderLists[0].classList.add('slider-active');
     
     categoryItems.forEach(function(item, index)
     {
@@ -22,7 +24,7 @@ function click_on_category_appear_product() {
             // tạo biến để lấy từng cột danh mục trực tiếp
             const get_product_category = $$1('.best-selling.slider-active .slider-items');
             
-            console.log(get_product_category)
+            // console.log(get_product_category)
 
             // add animation on products
 
@@ -34,7 +36,6 @@ function click_on_category_appear_product() {
                 }, 1100)
             })
 
-           
         }
     })
 
@@ -88,7 +89,6 @@ dotOption.addEventListener('click', function() {
     $1('.header-wraper__dot-options').classList.toggle('active');
 })
 
-
 const dotOptionVase = $1('.header-wraper__dot--vase');
 
 dotOptionVase.addEventListener('click', function() {
@@ -103,7 +103,7 @@ dotOptionVaseSecon.addEventListener('click', function() {
 
 
 // chỉnh height cho slider-category
-const sliderHeight = $1('.best-selling').offsetHeight;
+const sliderHeight = $1('.best-selling').clientHeight;
 console.log(sliderHeight)
 
 $1('.best-selling__product').style.height = `${sliderHeight + 60}px`
