@@ -1,59 +1,45 @@
 
+<div class="header-wraper" >
 
+    <div class="header-wraper__img">
+        {%- if section.settings.spfimage != blank -%}
+            <img src="{{ section.settings.spfimage | img_url: "master"}}" alt="" class="header-wraper__img--vw">
 
+        {%- else -%}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'header-wraper__img--vw bg-gray ' }}
+        {%- endif -%}
+    </div>
 
-<div class="header-wraper" style="background-image:url('{{ section.settings.spfimage.src | img_url: 'large' }}')"​​​​​​ >
-    
     <div class="section hero">
-       
 
-        <!-- <h1 class="hero-heading text">
+        <h1 class="hero-heading text ">
             {{ section.settings.heading }}
         </h1>
-
         
         <h2 class="sub-hero-heading text">
             {{ section.settings.subheading }}
-        </h2> -->
-        {%- for block in section.blocks -%}
-            {%- case block.type -%}
-                {%- when 'heading' -%}
-                    <h1 class="hero-heading text ">
-                        {{ block.settings.heading }}
-                    </h1>
-                    
-                {%- when 'text' -%}
-                    <h2 class="sub-hero-heading text">
-                        {{ block.settings.subheading }}
-                    </h2>
+        </h2>
 
-                {%- when 'input' -%}
-                    <form action="{{ routes.search_url }}">
-                        <div class="form-search dfs">
-                            <div class="text hero-search">
-                                <input type="text" placeholder="{{ block.settings.input }}"
-                                name="q"
-                                value="{{ search.terms | escape }}"
-                                > 
-                            </div>
-                            <button class="hero-search__icon df" type="submit" >
-                                <i class="bi bi-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                    
-            {%- endcase -%}
-      {%- endfor -%}
-
-        
-
+        <form action="{{ routes.search_url }}">
+            <div class="form-search dfs">
+                <div class="text hero-search">
+                    <input type="text" placeholder="{{ section.settings.input }}"
+                    name="q"
+                    value="{{ search.terms | escape }}"
+                    > 
+                </div>
+                <button class="hero-search__icon df" type="submit" >
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </form>
        
     </div>
     
-    <div class="header-wraper__dot hidden-tab-mob">
+    <!-- <div class="header-wraper__dot hidden-tab-mob">
         <div class="header-wraper__cricle-sofa df ">
             <div class="header-wraper__cricle-small">
-
+                
             </div>
         </div>
 
@@ -71,49 +57,73 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 
-    <div class="header-wraper__dot--vase hidden-tab-mob">
-        <div class="header-wraper__cricle--vase df">
-            <div class="header-wraper__cricle-small--vase">
-                
+    {% for block in section.blocks %}
+
+        <div class="header-wraper__dot--vase hidden-tab-mob " style="top: {{ block.settings.vertical }}%; left: {{ block.settings.horizontal }}%;  ">
+            <div class="header-wraper__cricle--vase df">
+                <div class="header-wraper__cricle-small--vase">
+                    
+                </div>
             </div>
-        </div>
 
-            <div class="product-wrapper__vase">
+            <div class="product-wrapper__vase ">
                 <div class="product-block">
-                    <img src="./assets/img/lohoa.jpg" alt="" class="product-img product-img__vase">
-
+                    <img src="{{ block.settings.block_product | img_url: "large" }}" alt="" class="product-img">
+                   
                 </div>
                 <div class="product-info">
                     <span class="product-name">
-                        Vase flowers
+                        {{ block.settings.block_product.type }}
                     </span>
-                    <a href="#" class="product-name__detail">
-                        Sakarias 
+                    <a href="{{ block.settings.block_product.url }}" class="product-name__detail">
+                        {{ block.settings.block_product.title }}
                     </a>
 
                     <div class="product-stars">
-                        <img src="./assets/icon/Star.svg" alt="">
-                        <img src="./assets/icon/Star.svg" alt="">
-                        <img src="./assets/icon/Star.svg" alt="">
-                        <img src="./assets/icon/Star.svg" alt="">
-                        <img src="./assets/icon/Star.svg" alt="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                            <path d="M13.9727 10.9081C13.7754 11.0993 13.6848 11.3758 13.7297 11.6469L14.4068 15.3941C14.4639 15.7117 14.3299 16.0331 14.0641 16.2166C13.8036 16.407 13.4571 16.4299 13.173 16.2775L9.79981 14.5182C9.68252 14.4557 9.55228 14.4222 9.419 14.4184H9.21261C9.14101 14.4291 9.07095 14.4519 9.00697 14.487L5.63304 16.2547C5.46625 16.3385 5.27737 16.3682 5.0923 16.3385C4.64142 16.2532 4.34059 15.8236 4.41446 15.3705L5.0923 11.6233C5.13723 11.3499 5.0466 11.0719 4.84934 10.8777L2.09917 8.21201C1.86916 7.98886 1.78919 7.65375 1.8943 7.35138C1.99635 7.04978 2.25682 6.82968 2.57137 6.78017L6.35657 6.23105C6.64446 6.20134 6.89731 6.02617 7.02678 5.76722L8.69471 2.34756C8.73431 2.2714 8.78534 2.20133 8.84703 2.14192L8.91558 2.08861C8.95137 2.04901 8.9925 2.01626 9.0382 1.9896L9.12121 1.95914L9.25069 1.90582H9.57132C9.85769 1.93553 10.1098 2.10689 10.2415 2.36279L11.9316 5.76722C12.0534 6.01627 12.2903 6.18916 12.5637 6.23105L16.3489 6.78017C16.6688 6.82587 16.9361 7.04674 17.042 7.35138C17.1417 7.65679 17.0557 7.9919 16.8211 8.21201L13.9727 10.9081Z" fill="#F6B76F"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                            <path d="M13.9727 10.9081C13.7754 11.0993 13.6848 11.3758 13.7297 11.6469L14.4068 15.3941C14.4639 15.7117 14.3299 16.0331 14.0641 16.2166C13.8036 16.407 13.4571 16.4299 13.173 16.2775L9.79981 14.5182C9.68252 14.4557 9.55228 14.4222 9.419 14.4184H9.21261C9.14101 14.4291 9.07095 14.4519 9.00697 14.487L5.63304 16.2547C5.46625 16.3385 5.27737 16.3682 5.0923 16.3385C4.64142 16.2532 4.34059 15.8236 4.41446 15.3705L5.0923 11.6233C5.13723 11.3499 5.0466 11.0719 4.84934 10.8777L2.09917 8.21201C1.86916 7.98886 1.78919 7.65375 1.8943 7.35138C1.99635 7.04978 2.25682 6.82968 2.57137 6.78017L6.35657 6.23105C6.64446 6.20134 6.89731 6.02617 7.02678 5.76722L8.69471 2.34756C8.73431 2.2714 8.78534 2.20133 8.84703 2.14192L8.91558 2.08861C8.95137 2.04901 8.9925 2.01626 9.0382 1.9896L9.12121 1.95914L9.25069 1.90582H9.57132C9.85769 1.93553 10.1098 2.10689 10.2415 2.36279L11.9316 5.76722C12.0534 6.01627 12.2903 6.18916 12.5637 6.23105L16.3489 6.78017C16.6688 6.82587 16.9361 7.04674 17.042 7.35138C17.1417 7.65679 17.0557 7.9919 16.8211 8.21201L13.9727 10.9081Z" fill="#F6B76F"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                            <path d="M13.9727 10.9081C13.7754 11.0993 13.6848 11.3758 13.7297 11.6469L14.4068 15.3941C14.4639 15.7117 14.3299 16.0331 14.0641 16.2166C13.8036 16.407 13.4571 16.4299 13.173 16.2775L9.79981 14.5182C9.68252 14.4557 9.55228 14.4222 9.419 14.4184H9.21261C9.14101 14.4291 9.07095 14.4519 9.00697 14.487L5.63304 16.2547C5.46625 16.3385 5.27737 16.3682 5.0923 16.3385C4.64142 16.2532 4.34059 15.8236 4.41446 15.3705L5.0923 11.6233C5.13723 11.3499 5.0466 11.0719 4.84934 10.8777L2.09917 8.21201C1.86916 7.98886 1.78919 7.65375 1.8943 7.35138C1.99635 7.04978 2.25682 6.82968 2.57137 6.78017L6.35657 6.23105C6.64446 6.20134 6.89731 6.02617 7.02678 5.76722L8.69471 2.34756C8.73431 2.2714 8.78534 2.20133 8.84703 2.14192L8.91558 2.08861C8.95137 2.04901 8.9925 2.01626 9.0382 1.9896L9.12121 1.95914L9.25069 1.90582H9.57132C9.85769 1.93553 10.1098 2.10689 10.2415 2.36279L11.9316 5.76722C12.0534 6.01627 12.2903 6.18916 12.5637 6.23105L16.3489 6.78017C16.6688 6.82587 16.9361 7.04674 17.042 7.35138C17.1417 7.65679 17.0557 7.9919 16.8211 8.21201L13.9727 10.9081Z" fill="#F6B76F"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                            <path d="M13.9727 10.9081C13.7754 11.0993 13.6848 11.3758 13.7297 11.6469L14.4068 15.3941C14.4639 15.7117 14.3299 16.0331 14.0641 16.2166C13.8036 16.407 13.4571 16.4299 13.173 16.2775L9.79981 14.5182C9.68252 14.4557 9.55228 14.4222 9.419 14.4184H9.21261C9.14101 14.4291 9.07095 14.4519 9.00697 14.487L5.63304 16.2547C5.46625 16.3385 5.27737 16.3682 5.0923 16.3385C4.64142 16.2532 4.34059 15.8236 4.41446 15.3705L5.0923 11.6233C5.13723 11.3499 5.0466 11.0719 4.84934 10.8777L2.09917 8.21201C1.86916 7.98886 1.78919 7.65375 1.8943 7.35138C1.99635 7.04978 2.25682 6.82968 2.57137 6.78017L6.35657 6.23105C6.64446 6.20134 6.89731 6.02617 7.02678 5.76722L8.69471 2.34756C8.73431 2.2714 8.78534 2.20133 8.84703 2.14192L8.91558 2.08861C8.95137 2.04901 8.9925 2.01626 9.0382 1.9896L9.12121 1.95914L9.25069 1.90582H9.57132C9.85769 1.93553 10.1098 2.10689 10.2415 2.36279L11.9316 5.76722C12.0534 6.01627 12.2903 6.18916 12.5637 6.23105L16.3489 6.78017C16.6688 6.82587 16.9361 7.04674 17.042 7.35138C17.1417 7.65679 17.0557 7.9919 16.8211 8.21201L13.9727 10.9081Z" fill="#F6B76F"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                            <path d="M13.9727 10.9081C13.7754 11.0993 13.6848 11.3758 13.7297 11.6469L14.4068 15.3941C14.4639 15.7117 14.3299 16.0331 14.0641 16.2166C13.8036 16.407 13.4571 16.4299 13.173 16.2775L9.79981 14.5182C9.68252 14.4557 9.55228 14.4222 9.419 14.4184H9.21261C9.14101 14.4291 9.07095 14.4519 9.00697 14.487L5.63304 16.2547C5.46625 16.3385 5.27737 16.3682 5.0923 16.3385C4.64142 16.2532 4.34059 15.8236 4.41446 15.3705L5.0923 11.6233C5.13723 11.3499 5.0466 11.0719 4.84934 10.8777L2.09917 8.21201C1.86916 7.98886 1.78919 7.65375 1.8943 7.35138C1.99635 7.04978 2.25682 6.82968 2.57137 6.78017L6.35657 6.23105C6.64446 6.20134 6.89731 6.02617 7.02678 5.76722L8.69471 2.34756C8.73431 2.2714 8.78534 2.20133 8.84703 2.14192L8.91558 2.08861C8.95137 2.04901 8.9925 2.01626 9.0382 1.9896L9.12121 1.95914L9.25069 1.90582H9.57132C9.85769 1.93553 10.1098 2.10689 10.2415 2.36279L11.9316 5.76722C12.0534 6.01627 12.2903 6.18916 12.5637 6.23105L16.3489 6.78017C16.6688 6.82587 16.9361 7.04674 17.042 7.35138C17.1417 7.65679 17.0557 7.9919 16.8211 8.21201L13.9727 10.9081Z" fill="#F6B76F"/>
+                        </svg>
                     </div>
 
-                    <div class="product-costs dfs">
-                        $20
-                        <button class="product-plus df">
-                            <img src="./assets/icon/Plus.svg" alt="">
-                        </button>
-                    </div>
+                
+
+                    <form method="post" action="/cart/add">
+                        <input type="hidden" name="id" value="{{ block.settings.block_product.variants.first.id }}" />
+                        <!-- <input min="1" type="number" id="quantity" name="quantity" value="1"/> -->
+
+                        <div class="product-costs dfs">
+                            {{ block.settings.block_product.price_max | money }}
+                            <button  class="product-plus df" type="submit" value="Add to cart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                                    <path d="M20.1342 10.2102C20.1342 9.44107 19.5107 8.81756 18.7415 8.81756H11.7782V1.85427C11.7782 1.08512 11.1547 0.461609 10.3856 0.461609C9.61643 0.461609 8.99291 1.08512 8.99291 1.85427V8.81756H2.02962C1.26048 8.81756 0.636963 9.44107 0.636963 10.2102C0.636963 10.9794 1.26048 11.6029 2.02962 11.6029H8.99291V18.5662C8.99291 19.3353 9.61643 19.9588 10.3856 19.9588C11.1547 19.9588 11.7782 19.3353 11.7782 18.5662V11.6029H18.7415C19.5107 11.6029 20.1342 10.9794 20.1342 10.2102Z" fill="white"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
 
                 </div>
             </div>
+            
+            
+        </div>
 
-    </div>
+    {% endfor %}
 
-    <div class="header-wraper__dot--vase-secondary hidden-tab-mob">
+    <!-- <div class="header-wraper__dot--vase-secondary hidden-tab-mob">
         <div class="header-wraper__cricle--vase df">
             <div class="header-wraper__cricle-small--vase">
 
@@ -134,7 +144,7 @@
             </div>
         </div>
        
-    </div>
+    </div> -->
 
     
 </div>
@@ -142,62 +152,70 @@
 
 {% schema %}
 {
-  "name": "Image banner",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "spfimage",
-      "label": "Upload your image"
-    }
-  ],
-  "blocks": [
+    "name": "Image banner",
+    "settings": [
         {
-            "name": "heading",
-            "type": "heading",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "heading",
-                    "default": "Make your interior more minimalistic & modern",
-                    "label": "Heading"
-                }
-            ]
+        "type": "image_picker",
+        "id": "spfimage",
+        "label": "Upload your image"
         },
         {
-            "name": "subheading",
             "type": "text",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "subheading",
-                    "default": "Turn your room with panto into a lot more minimalist and modern with ease and speed",
-                    "label": "paragrap"
-                }
-            ]
+            "id": "heading",
+            "default": "Make your interior more minimalistic & modern",
+            "label": "Heading"
         },
         {
-            "name": "Input",
-            "type": "input",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "input",
-                    "default": "Search furniture",
-                    "label": "paragrap"
-                }
-            ]
+            "type": "text",
+            "id": "subheading",
+            "default": "Turn your room with panto into a lot more minimalist and modern with ease and speed",
+            "label": "Subheading"
+        },
+        {
+            "type": "text",
+            "id": "input",
+            "default": "Search furniture",
+            "label": "Text input"
         }
+    ],
+    "blocks": [
+    { 
+        "type": "products",
+        "name": "Products",
+        "settings": [
+          {
+            "type": "product",
+            "id": "block_product",
+            "label": "Product"
+          },
+          {
+            "type": "range",
+            "id": "horizontal",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Horizontal Position",
+            "default": 50
+          },
+          {
+            "type": "range",
+            "id": "vertical",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Vertical Position",
+            "default": 50
+          }
+        ]	
+      } 
     ],
     "presets": [
         {
             "name": "spf-banner",
             "blocks": [
-                {
-                    "type": "heading"
-                },
-                {
-                    "type": "text"
-                }
+               
             ]
         }
     ]

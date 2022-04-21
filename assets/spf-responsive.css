@@ -1,6 +1,15 @@
 
 
 @media (max-width: 767px) {
+
+    .reason-more--mdf {
+        justify-content: center;
+    }
+
+    .footer-bonus {
+        margin-top: 65px;
+    }
+
     .expensive-wrapper {
         padding: 0 15px;
     }
@@ -10,7 +19,7 @@
     }
 
     .hero-heading {
-        --font-size-regular: 2rem;
+        --font-size-regular: 1.8    rem;
     }
 
     .sub-hero-heading {
@@ -34,7 +43,7 @@
     }
 
     .footer-bonus__term {
-        margin: 0;
+        margin-right: 20px;
     }
 
     .category-items {
@@ -68,16 +77,16 @@
     }
 
     .section.review {
-        margin-top: 140px;
+        margin-bottom: 100px;
 
     }
 
     .section.materials {
-        margin-top: 160px;
+        margin-bottom: 155px;
     }
 
     .footer {
-        margin-top: 120px;
+        padding-top: 80px;
     }
      
 }
@@ -131,8 +140,9 @@
         display: none;
     }
 
+    .section.best-selling,
     .section.expensive {
-        margin-top: 100px;
+        margin-bottom: 155px;
     }
 
     .expensive-text,
@@ -274,9 +284,13 @@
         margin-bottom: 64px;
     }
 
+    
+
     .mb-35 {
         margin-bottom: 35px;
     }
+
+    
     
 }
 
@@ -315,6 +329,14 @@
 @media (min-width: 1024px) and (max-width: 1535px) {
     .mt {
         margin-top: 70px;
+    }
+    
+}
+
+@media (min-width: 1120px){
+    .reason-text {
+        min-height: 119px;
+
     }
     
 }

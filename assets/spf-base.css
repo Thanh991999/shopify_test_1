@@ -96,7 +96,7 @@ input {
 
 .heading {
     font-size: 4.2rem;
-    line-height: 4.9rem;
+    line-height: 1.16em;
     color: #1E1E1E;
     font-family: var(--Gilroy-Bold);
 
@@ -114,8 +114,21 @@ input {
     display: none !important;
 }
 
+.visibility {
+    display: block !important;
+}
+
 .flex {
     display: flex;
+}
+
+.dfa {
+    display: flex;
+    align-items: center;
+}
+
+.pl-80 {
+    padding-left: 80px;
 }
 
 

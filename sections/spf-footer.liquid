@@ -2,85 +2,223 @@
     <div class="container">
         <div class="row">
             <div class="col l-5 m-12 c-12 mb-40">
-                <div class="footer-logo">
-                    Panto
-                </div>
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when "logo" %}     
+                            <div class="footer-logo">
+                                {% if section.settings.spf-img == blank and section.settings.spf-logo != blank %}
+                                    <a href="{{ routes.root_url }}" class="nav-logo nav-logo--back text">
+                                        {{ section.settings.spf-logo }}
+                                    </a>
+                                        
+                                    {% elsif section.settings.spf-img == blank and section.settings.spf-logo == blank %}
+                                        {{ 'image' | placeholder_svg_tag: 'header__logo-img' }}
+                                    {% else %}
+                                        <a href="{{ routes.root_url }}">
+                                            <img class="" src="{{ section.settings.spf-img| img_url: '100x100' }}" alt="">
+                                        </a>
+                                {% endif %}
+                            </div>
 
-                <div class="footer-sologan">
-                    The advantage of hiring a workspace with us is that givees you comfortable service and all-around facilities.
-                </div>
+                            <div class="footer-sologan">
+                                {{ block.settings.richtext }}
+                            </div>
+                    {% endcase %}
+                {% endfor %}
             </div>
+
             <div class="col l-7 m-12 c-12">
                 <div class="row">
 
-                    <div class="col l-4 m-4 c-12">
-                        <div class="footer-title">Services</div>
-                        <ul>
-                            <li class="footer-item">
-                                <a href="" class="footer-link">Email Marketing</a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-link">Campaigns</a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-link">Branding</a>
-                            </li>
-                        </ul>
-                    </div>
+                    {% for block in section.blocks %}
 
-                    <div class="col l-4 m-4 c-12">
-                        <div class="footer-title">Furniture</div>
-                        <ul>
-                            <li class="footer-item ">
-                                <a href="" class="footer-link">Beds</a>
-                            </li>
-                            <li class="footer-item ">
-                                <a href="" class="footer-link">Chair</a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-link">All</a>
-                            </li>
-                        </ul>
-                    </div>
+                        {% case block.type %}
+                        
+                            {% when "footer-title" %}
+                                
+                                <div class="col l-4 m-4 c-12">
+                                    
+                                    <div class="footer-title">
+                                        {{ block.settings.title }}
+                                    </div>
+                                    
+                                    <ul>
+                                        {% for link in block.settings.menus.links %}
+                                            <li class="footer-item">
+                                                <a href="{{ link.url }}" class="footer-link">
+                                                    {{ link.title }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}                              
+                                    </ul>
+                                        
+                                </div>
+                            
+                            {% when 'social' %}
+                                
+                                <div class="col l-4 m-4 c-12">
+                                    <div class="footer-title">{{ block.settings.social }}</div>
+                                    <ul>
+                                        {%- if settings.social_facebook_link != blank -%}
+                                            <li class="footer-item">
+                                                <a class="social-icons__link footer-social dfa" href="{{ settings.social_facebook_link | escape }}" aria-describedby="a11y-external-message">
+                                                {%- render 'spf-fb' -%}
+                                                <span class="icon__fallback-text">Facebook</span>
+                                                </a>
+                                            </li>
+                                        {%- endif -%}
+                                        
+                                        {% if settings.social_twitter_link != blank %}
+                                            <li class="footer-item">
+                                                <a class="social-icons__link footer-social dfa" href="{{ settings.social_twitter_link | escape }}" aria-describedby="a11y-external-message">
+                                                {%- render 'spf-twitter' -%}
+                                                <span class="icon__fallback-text">Twitch</span>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                        
+                                        {% if settings.social_instagram_link != blank %}
+                                            <li class="footer-item">
+                                                <a class="social-icons__link footer-social dfa" href="{{ settings.social_instagram_link | escape }}" aria-describedby="a11y-external-message">
+                                                {%- render 'spf-instagram' -%}
+                                                <span class="icon__fallback-text">Instagram</span>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                        
+                                    </ul>
+                                </div>
 
-                    <div class="col l-4 m-4 c-12">
-                        <div class="footer-title">Furniture</div>
-                        <ul>
-                            <li class="footer-item">
-                                <a href="" class="footer-social flex">
-                                    <img src="./assets/icon/fb.svg" alt="">
-                                    Facebook
-                                </a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-social flex">
-                                    <img src="./assets/icon/twitter.svg" alt="">
-                                    Twitter
-                                </a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-social flex">
-                                    <img src="./assets/icon/instagram.svg" alt="">
-                                    Instagram
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                        {% endcase %}
 
-
+                    {% endfor %}
                 </div>
             </div>
         </div>
 
+        
         <div class="footer-bonus dfs">
+            
             <div class="footer-bonus__author">
-                Copyright © 2021
+                {{ section.settings.resource }}
             </div>
 
             <div class="footer-bonus__condition">
-                <a href="" class="footer-bonus__term">Terms &amp; Conditions</a>
-                <a href="" class="footer-bonus__policy">Privacy Policy</a>
+                <a href="" class="footer-bonus__term">
+                    {{ section.settings.term }}
+                </a>
+
+                <a href="" class="footer-bonus__policy">
+                    {{ section.settings.policy }}
+                </a>
             </div>
+               
         </div>
+
     </div>
+
+   
+
 </div>
+
+{% schema %}
+{
+   "name": "spf-footer",
+   "settings": [
+        {
+            "type": "text",
+            "id": "spf-logo",
+            "label": "Upload your logo",
+            "default": "Panto"
+        },
+        {
+            "type": "image_picker",
+            "id": "spf-img",
+            "label": "Upload your image logo"
+        },
+        {
+            "type": "text",
+            "id": "resource",
+            "default": "Copyright © 2021",
+            "label": "Resource"
+        },
+        {
+            "type": "text",
+            "id": "term",
+            "default": "Terms & Conditions",
+            "label": "Terms"
+        },
+        {
+            "type": "text",
+            "id": "policy",
+            "default": "Privacy Policy",
+            "label": "Policy"
+        }
+       
+    ],
+   "blocks": [
+        {
+            "type": "logo",
+            "name": "Logo & sologan",
+            "settings": [
+                {
+                    "type": "text",
+                    "label": "Logo",
+                    "id": "logo",
+                    "default": "Panto"
+                },
+                {
+                    "type": "richtext",
+                    "label": "Your Sologan",
+                    "id": "richtext",
+                    "default": "<p>The advantage of hiring a workspace with us is that givees you comfortable service and all-around facilities.</p>"
+                }
+            ]
+        },
+        {
+            "type": "footer-title",
+            "name": "Heading",
+            "settings": [
+                {
+                    "type": "text",
+                    "label": "Heading",
+                    "id": "title",
+                    "default": "Service"
+                },
+                {
+                    "type": "link_list",
+                    "id": "menus",
+                    "default": "footer",
+                    "label": "Menu"
+                }
+                
+            ]
+        },
+        {
+            "type": "social",
+            "name": "Social",
+            "settings": [
+                {
+                    "type": "text",
+                    "label": "Heading",
+                    "id": "social",
+                    "default": "Social"
+                }
+            ]
+        }
+        
+        
+       
+   ],
+   "presets": [
+       {
+           "name": "spf-footer",
+           "blocks": [
+                {
+                    "type": "logo"
+                }
+           ]
+       }
+   ]
+}
+{% endschema %}

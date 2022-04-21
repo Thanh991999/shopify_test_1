@@ -82,10 +82,10 @@
     "sale_badge_color_scheme": "accent-2",
     "sold_out_badge_color_scheme": "inverse",
     "accent_icons": "text",
-    "social_twitter_link": "",
-    "social_facebook_link": "",
+    "social_twitter_link": "https:\/\/twitter.com\/?lang=vi",
+    "social_facebook_link": "https:\/\/www.facebook.com\/",
     "social_pinterest_link": "",
-    "social_instagram_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/",
     "social_tiktok_link": "",
     "social_tumblr_link": "",
     "social_snapchat_link": "",
@@ -188,6 +188,57 @@
         "type": "spf-banner",
         "settings": {
           "spfimage": "shopify:\/\/shop_images\/hero-bg.jpg"
+        }
+      },
+      "spf-header": {
+        "type": "spf-header",
+        "settings": {
+          "spf-logo": "Panto",
+          "menu": "main-menu"
+        }
+      },
+      "spf-footer": {
+        "type": "spf-footer",
+        "blocks": {
+          "1b4d5617-b6bf-420d-b4a3-84f1195fdaf7": {
+            "type": "logo",
+            "settings": {
+              "logo": "Panto",
+              "richtext": "<p>The advantage of hiring a workspace with us is that givees you comfortable service and all-around facilities.<\/p>"
+            }
+          },
+          "8f9823d7-ac40-4be1-a99e-274b0df70af1": {
+            "type": "footer-title",
+            "settings": {
+              "title": "Service",
+              "menus": "footer"
+            }
+          },
+          "c7bd5b89-a554-4336-b892-db3a830b23d9": {
+            "type": "footer-title",
+            "settings": {
+              "title": "Funitures",
+              "menus": "footer-first"
+            }
+          },
+          "e34eb088-774e-4df0-aa04-556d755855f7": {
+            "type": "social",
+            "settings": {
+              "social": "Social"
+            }
+          }
+        },
+        "block_order": [
+          "1b4d5617-b6bf-420d-b4a3-84f1195fdaf7",
+          "8f9823d7-ac40-4be1-a99e-274b0df70af1",
+          "c7bd5b89-a554-4336-b892-db3a830b23d9",
+          "e34eb088-774e-4df0-aa04-556d755855f7"
+        ],
+        "settings": {
+          "spf-logo": "Panto",
+          "resource": "Copyright © 2021",
+          "term": "Terms & Conditions",
+          "policy": "Privacy Policy"
         }
       }
     },

@@ -2,10 +2,12 @@ const $1 = document.querySelector.bind(document);
 const $$1 = document.querySelectorAll.bind(document);
 
 
-function click_on_category_appear_product() {
-    let sliderLists = document.querySelectorAll('.slider.best-selling');
-    let categoryItems = document.querySelectorAll('.category-items');
-    categoryItems[0].classList.add('active');
+function click_on_category_appear_product(container) {
+    console.log( container, '.slider.best-selling')
+    let sliderLists = document.querySelectorAll(`#shopify-section-${container} .slider.best-selling`);
+   
+    let categoryItems = document.querySelectorAll(`#shopify-section-${container} .category-items`);
+    
     sliderLists[0].classList.add('slider-active');
     
     categoryItems.forEach(function(item, index)
@@ -13,16 +15,16 @@ function click_on_category_appear_product() {
         item.onclick = function(events) {
             
             // active appear slider 
-            $1('.category-items.active').classList.remove('active');
+            $1(`#shopify-section-${container} .category-items.active`).classList.remove('active');
 
             events.target.classList.add('active');
 
-            document.querySelector('.slider-active.best-selling').classList.remove('slider-active');
+            document.querySelector(`#shopify-section-${container} .slider-active.best-selling`).classList.remove('slider-active');
             
             sliderLists[index].classList.add('slider-active');           
 
             // tạo biến để lấy từng cột danh mục trực tiếp
-            const get_product_category = $$1('.best-selling.slider-active .slider-items');
+            const get_product_category = $$1(`#shopify-section-${container} .best-selling.slider-active .slider-items`);
             
             // console.log(get_product_category)
 
@@ -42,7 +44,7 @@ function click_on_category_appear_product() {
 
 }
 
-click_on_category_appear_product();
+//click_on_category_appear_product();
 
 // active cart
 
@@ -83,31 +85,28 @@ if( getMenu) {
 
 
 // active các dot trên hero section
-const dotOption = $1('.header-wraper__dot');
 
-dotOption.addEventListener('click', function() {
-    $1('.header-wraper__dot-options').classList.toggle('active');
+const dotOptionVase = $$1('.header-wraper__dot--vase');
+
+dotOptionVase.forEach(function(item, index) {
+    
+    item.addEventListener('click', function() {
+        document.querySelectorAll('.product-wrapper__vase')[index].classList.toggle('active');
+    })
+
 })
 
-const dotOptionVase = $1('.header-wraper__dot--vase');
-
-dotOptionVase.addEventListener('click', function() {
-    $1('.product-wrapper__vase').classList.toggle('active');
-})
-
-const dotOptionVaseSecon = $1('.header-wraper__dot--vase-secondary');
-
-dotOptionVaseSecon.addEventListener('click', function() {
-    $1('.header-wraper__dot-options--vase-secondary ').classList.toggle('active');
-})
 
 
 // chỉnh height cho slider-category
 const sliderHeight = $1('.best-selling').clientHeight;
 console.log(sliderHeight)
 
-$1('.best-selling__product').style.height = `${sliderHeight + 60}px`
 
+$$1('.best-selling__product').forEach(function(item)
+{
+    item.style.height = `${sliderHeight + 60}px`;
+})
 
 // set height cho hiệu ứng hover hiện submenu
 
@@ -123,3 +122,6 @@ const subMenu = $1('.nav-item:first-child');
 subMenu.onclick = function() {
       $1('.nav-item__funiture-list').classList.toggle('active');
 }
+
+
+

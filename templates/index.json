@@ -3,32 +3,32 @@
     "16497578047583b264": {
       "type": "spf-banner",
       "blocks": {
-        "16497578043667a9f9-1": {
-          "type": "heading",
+        "0c283f9f-5bd6-4adf-8d76-deeb498d2ccf": {
+          "type": "products",
           "settings": {
-            "heading": "Make your interior more minimalistic & modern"
+            "block_product": "vase",
+            "horizontal": 7,
+            "vertical": 66
           }
         },
-        "16497578043667a9f9-0": {
-          "type": "text",
+        "ca1ac8ee-a8be-4400-92a4-8726a391acf1": {
+          "type": "products",
           "settings": {
-            "subheading": "Turn your room with panto into a lot more minimalist and modern with ease and speed"
-          }
-        },
-        "a54061dc-8211-4cfa-bc3d-4411149956ca": {
-          "type": "input",
-          "settings": {
-            "input": "Search furniture"
+            "block_product": "sofa-orage-2022",
+            "horizontal": 19,
+            "vertical": 63
           }
         }
       },
       "block_order": [
-        "16497578043667a9f9-1",
-        "16497578043667a9f9-0",
-        "a54061dc-8211-4cfa-bc3d-4411149956ca"
+        "0c283f9f-5bd6-4adf-8d76-deeb498d2ccf",
+        "ca1ac8ee-a8be-4400-92a4-8726a391acf1"
       ],
       "settings": {
-        "spfimage": "shopify:\/\/shop_images\/hero-bg.jpg"
+        "spfimage": "shopify:\/\/shop_images\/hero-bg.jpg",
+        "heading": "Make your interior more minimalistic & modern",
+        "subheading": "Turn your room with panto into a lot more minimalist and modern with ease and speed",
+        "input": "Search furniture"
       }
     },
     "1649815867ba9bcfcb": {
@@ -69,7 +69,7 @@
       ],
       "settings": {
         "multilcolumn-heading": "Why Choosing Us",
-        "select-size-text": "large"
+        "select-size-text": "medium"
       }
     },
     "16498341215333ab38": {
@@ -79,28 +79,32 @@
           "type": "text",
           "settings": {
             "title": "Chair",
-            "collection": "chair-collection"
+            "collection": "chair-collection",
+            "stars": "5"
           }
         },
         "f46c339a-986a-46db-adae-bc97eefbacfb": {
           "type": "text",
           "settings": {
             "title": "Beds",
-            "collection": "chair-collection"
+            "collection": "bộ-sưu-tập-mua-he",
+            "stars": "5"
           }
         },
         "30911ff1-22c2-408e-8873-f938b619c05b": {
           "type": "text",
           "settings": {
             "title": "Sofa",
-            "collection": "chair-collection"
+            "collection": "chair-collection",
+            "stars": "5"
           }
         },
         "74c5ad1d-6d7c-4c81-b9a3-ebf459194a0d": {
           "type": "text",
           "settings": {
             "title": "Lamp",
-            "collection": "chair-collection"
+            "collection": "chair-collection",
+            "stars": "5"
           }
         }
       },
@@ -111,215 +115,150 @@
         "74c5ad1d-6d7c-4c81-b9a3-ebf459194a0d"
       ],
       "settings": {
-        "heading": "Best Selling Product"
+        "heading": "Best Selling Product",
+        "linklabel": "View All",
+        "link": "shopify:\/\/collections\/all"
       }
     },
-    "image_banner": {
-      "type": "image-banner",
+    "1650448315c793dce8": {
+      "type": "spf-image-with-text",
       "blocks": {
-        "heading": {
+        "1650448315939e4250-0": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "EXPERIENCES"
+          }
+        },
+        "1650448315939e4250-1": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
+            "heading": "we provide you the best experience"
           }
         },
-        "text": {
-          "type": "text",
+        "1650448315939e4250-2": {
+          "type": "description",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "descript": "You don’t have to worry about the result because all of these interiors are made by people who are professionals in their fields with an elegant and lucurious style and with premium quality materials"
           }
         },
-        "button": {
-          "type": "buttons",
+        "1650448315939e4250-3": {
+          "type": "link",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "linklabel": "More Info",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "1650448315939e4250-0",
+        "1650448315939e4250-1",
+        "1650448315939e4250-2",
+        "1650448315939e4250-3"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/img-5.jpg",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "adapt_height_first_image": false,
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "image": "shopify:\/\/shop_images\/ex.jpg",
+        "layout": "left"
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+    "16504483644446dda2": {
+      "type": "spf-image-with-text",
       "blocks": {
-        "heading": {
+        "16504483646446a34b-0": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "EXPERIENCES"
+          }
+        },
+        "16504483646446a34b-1": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "heading": "we provide you the best experience"
           }
         },
-        "text": {
+        "16504483646446a34b-2": {
+          "type": "description",
+          "settings": {
+            "descript": "You don’t have to worry about the result because all of these interiors are made by people who are professionals in their fields with an elegant and lucurious style and with premium quality materials"
+          }
+        },
+        "16504483646446a34b-3": {
+          "type": "link",
+          "settings": {
+            "linklabel": "More Info",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16504483646446a34b-0",
+        "16504483646446a34b-1",
+        "16504483646446a34b-2",
+        "16504483646446a34b-3"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/materials1.jpg",
+        "imagea": "shopify:\/\/shop_images\/materials.jpg",
+        "imageb": "shopify:\/\/shop_images\/materials3.jpg",
+        "layout": "right"
+      }
+    },
+    "165001394024a15add": {
+      "type": "spf-client-review",
+      "blocks": {
+        "bd699316-5bac-4cc3-aaf4-f31968d6c72f": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "background": "shopify:\/\/shop_images\/bg-1_a342f6a3-b941-4de3-9bb8-f663aadbca4d.jpg",
+            "avatar": "shopify:\/\/shop_images\/ava-1.jpg",
+            "name": "Bang Upin",
+            "title": "Pedagang Asongan",
+            "comment": "“Terimakasih banyak, kini ruanganku menjadi lebih mewah dan terlihat mahal“",
+            "stars": "4"
+          }
+        },
+        "639ef115-0859-4438-9cf4-959b838fd952": {
+          "type": "text",
+          "settings": {
+            "background": "shopify:\/\/shop_images\/bg-2.jpg",
+            "avatar": "shopify:\/\/shop_images\/ava-2.jpg",
+            "name": "Ibuk Sukijan",
+            "title": "Ibu Rumah Tangga",
+            "comment": "“Makasih Panto, aku sekarang berasa tinggal di apartment karena barang-barang yang terlihat mewah“",
+            "stars": "5"
+          }
+        },
+        "ec93235a-484f-4096-942a-75f11a915931": {
+          "type": "text",
+          "settings": {
+            "background": "shopify:\/\/shop_images\/bg-3.jpg",
+            "avatar": "shopify:\/\/shop_images\/ava-3.jpg",
+            "name": "Bang Upin",
+            "title": "Pedagang Asongan",
+            "comment": "“Sangat terjangkau untuk kantong saya yang tidak terlalu banyak“",
+            "stars": "4"
+          }
+        },
+        "18a0db10-3b30-4613-813a-cf4a125eb77a": {
+          "type": "text",
+          "settings": {
+            "background": "shopify:\/\/shop_images\/happy-ginger-cat.jpg",
+            "avatar": "shopify:\/\/shop_images\/bg-2.jpg",
+            "name": "Bang Upinn",
+            "title": "Pedagang Asongan",
+            "comment": "“Terimakasih banyak, kini ruanganku menjadi lebih mewah dan terlihat mahal“",
+            "stars": "5"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "bd699316-5bac-4cc3-aaf4-f31968d6c72f",
+        "639ef115-0859-4438-9cf4-959b838fd952",
+        "ec93235a-484f-4096-942a-75f11a915931",
+        "18a0db10-3b30-4613-813a-cf4a125eb77a"
       ],
       "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "background-1",
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": "bộ-sưu-tập-mua-he"
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "bitis-hunter-collection",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "frontpage"
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "cover_image": "shopify:\/\/shop_images\/img-3.jpg",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=btDd9rOlc2k&list=RDGMEMHDXYb1_DDSgDsobPsOFxpA&index=4",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "subheading": "TESTIMONIALS",
+        "heading": "Our Client Reviews"
       }
     }
   },
@@ -327,11 +266,8 @@
     "16497578047583b264",
     "1649815867ba9bcfcb",
     "16498341215333ab38",
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "1650448315c793dce8",
+    "16504483644446dda2",
+    "165001394024a15add"
   ]
 }
