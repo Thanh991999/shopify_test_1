@@ -9,7 +9,7 @@
             {%- for block in section.blocks -%}
                 {%- case block.type -%}
                     {%- when 'subtitle' -%}
-                        <p class="product__info-ventor">{{ block.settings.title }} // {{ product.vendor }}</p>
+                        <p class="product__info-ventor">{{ block.settings.title }}</p>
                     {%- when 'title' -%}
                         <h1 class="product__info-name">{{ product.title }}</h1>
                     {%- when 'price' -%}
