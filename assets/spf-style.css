@@ -4,6 +4,11 @@
     outline-offset: none;
 }
 
+input[type="submit"] {
+    color: #000;
+    border: 1px solid #000;
+}
+
 .client-review__img {
     position: absolute;
     width: 100%;
@@ -1045,14 +1050,14 @@
     position: relative;
 }
 
-.slider {
+.spf-slider {
     position: absolute;
     max-width: 100%;
     left: 0;
     visibility: hidden;
 }
 
-.slider.slider-active{
+.spf-slider.slider-active{
     visibility: visible;
 }
 

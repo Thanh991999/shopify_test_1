@@ -4,7 +4,7 @@ const $$1 = document.querySelectorAll.bind(document);
 
 function click_on_category_appear_product(container) {
     console.log( container, '.slider.best-selling')
-    let sliderLists = document.querySelectorAll(`#shopify-section-${container} .slider.best-selling`);
+    let sliderLists = document.querySelectorAll(`#shopify-section-${container} .spf-slider.best-selling`);
    
     let categoryItems = document.querySelectorAll(`#shopify-section-${container} .category-items`);
     
@@ -99,21 +99,25 @@ dotOptionVase.forEach(function(item, index) {
 
 
 // chỉnh height cho slider-category
-const sliderHeight = $1('.best-selling').clientHeight;
-console.log(sliderHeight)
-
-
-$$1('.best-selling__product').forEach(function(item)
+if ( $1('.best-selling') )
 {
-    item.style.height = `${sliderHeight + 60}px`;
-})
+    const sliderHeight = $1('.best-selling').clientHeight;
+    console.log(sliderHeight)
+
+
+    $$1('.best-selling__product').forEach(function(item)
+    {
+        item.style.height = `${sliderHeight + 60}px`;
+    })
+
+}
 
 // set height cho hiệu ứng hover hiện submenu
 
 const subMenuItemHeight = $1('.nav-item__funiture-link').offsetHeight;
 const amountItems = $$1('.nav-item__funiture-items').length;
 
-console.log(subMenuItemHeight)
+// console.log(subMenuItemHeight)
 
 const heightSubMenu = `${(subMenuItemHeight + 10)*amountItems + 10}`
 

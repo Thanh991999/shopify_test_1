@@ -1,0 +1,131 @@
+
+{{ 'spf-product-main.css' | asset_url | stylesheet_tag }}
+
+    <div id="product" class="product">
+        <div class="product__img">
+            <img src="{{ product.featured_media| product_img_url: 'master' }}" alt="img1">
+        </div>
+        <div class="product__info">
+            {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {%- when 'subtitle' -%}
+                        <p class="product__info-ventor">{{ block.settings.title }} // {{ product.vendor }}</p>
+                    {%- when 'title' -%}
+                        <h1 class="product__info-name">{{ product.title }}</h1>
+                    {%- when 'price' -%}
+                        <h3>Price</h3>
+                        <span class="product__info-cost">{{ product.price_max | money }}</span>
+
+                    <form class="mt-15 product-form" method="post" action="/cart/add">
+
+                      {%- when 'select' -%}
+                      {% for product_option in product.options_with_values %}
+                        <div class="product-select {% if product_option.name == 'Title' %} hidden {% endif %}">
+                            <label>
+                              <span class="product-select__title" >
+                                {{ product_option.name }}
+                              </span>
+                              <br>
+                              <select class="product-option">
+                                {% for value in product_option.values %}
+                                  <option {% if product_option.selected_value == value %}selected{% endif %}>
+                                    {{ value }} 
+                                  </option> 
+                                {% endfor %}
+                              </select>
+                            </label>
+                        </div>
+                      {% endfor %}
+
+
+                      {%- when 'quantity' -%}
+                        <div class="product__quantity mt-15">
+                            <label class="product__quantity"for="">Quantity</label>
+                            <div class="product__quantity-wrap">
+                              <i onclick="this.parentNode.querySelector('.product__quantity-input').stepDown()" class="bi bi-dash dash-icon"></i>
+                              <input class="product__quantity-input" min="1" type="number"  value="1">
+                              <i onclick="this.parentNode.querySelector('.product__quantity-input').stepUp()" class="bi bi-plus plus-icon"></i>
+                            </div>
+                        </div>
+                      
+                      {%- when 'addToCart' -%} 
+                          <!-- <input type="hidden" name="id" value="{{ product.variants.first.id }}" /> -->
+                          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                          <button class="addToCart" type="submit">
+                              Add to cart
+                          </button>
+                    </form>
+
+                    {%- when 'descript' -%}
+                        <h3 class="product__descript">Description</h3>
+                        <p class="product__descript-detail">
+                            {{ product.description }}
+                        </p>
+                    {%- when 'review' -%}  
+                        <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
+                {%- endcase -%}
+            {%- endfor -%}
+        </div>
+    </div>
+
+    <script src="{{ 'spf-product-detail.js' | asset_url }}" defer="defer"></script>    
+
+{% schema %}
+{
+    "name": "product detail",
+    "settings": [
+    //{
+        // "name":label": "Product",
+        //"type": "text",
+        //"id": "product"
+    //}
+    ],
+    "blocks": [
+        {
+            "type": "subtitle",
+            "name": "subtitle",
+            "settings": [
+                {
+                    "label": "Sub title",
+                    "type": "text",
+                    "default": "Title defaule",
+                    "id": "title"
+                }
+            ]
+        },
+        {
+            "type": "title",
+            "name": "Title"
+        },
+        {
+            "type": "price",
+            "name": "Price"
+        },
+        {
+          "type": "select",
+          "name": "Select Size"
+        },
+        {
+          "type": "quantity",
+          "name": "Quantity product"
+        },
+        {
+          "type": "addToCart",
+          "name": "Buy Btn"
+        } ,
+        {
+            "type": "descript",
+            "name": "Description"
+        },
+        {
+          "type": "review",
+          "name": "Review"
+      }
+    ],
+    "presets": [
+        {
+            "name": "Product Info Thanh"
+        }
+    ]
+}
+{% endschema %}
