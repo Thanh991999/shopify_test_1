@@ -6,7 +6,7 @@
         "19cdc135-54d4-4cf2-9ae1-6a5698b478fd": {
           "type": "subtitle",
           "settings": {
-            "title": "Title defaule"
+            "title": "{{ product.vendor }}"
           }
         },
         "6c5235b6-7d96-48d6-a40b-2addcf88f0f9": {
